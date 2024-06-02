@@ -1,5 +1,5 @@
 using System;
-
+using System.Globalization;
 class Program {
   public static void Main (string[] args) {
 
@@ -18,7 +18,8 @@ class Program {
     double MilesTraveled;
 
     if (double.TryParse(Hours, out HoursWorked) && double.TryParse(Miles, out MilesTraveled)){
-      Console.WriteLine("$"+(200 + (MilesTraveled * 2) + (HoursWorked * 150)));
+   var totalCost= ((200 + (MilesTraveled * 2) + (HoursWorked * 150)).ToString("C", CultureInfo.CreateSpecificCulture("en-US")));
+      Console.WriteLine(totalCost);
     }
     else{
       Console.WriteLine("Invalid Input");
